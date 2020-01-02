@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import {Button, Card, Col, Input, Row, Select, Icon} from "antd";
 import 'antd/dist/antd.css';
+import {connect} from 'react-redux'
+
 
 class Login extends Component {
     render() {
