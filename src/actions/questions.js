@@ -1,5 +1,5 @@
-import {_saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
-import {showLoading, hideLoading} from "react-redux-loading";
+import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
+import { showLoading, hideLoading } from "react-redux-loading";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
 export const RECEIVE_ANSWERS = 'RECEIVE_ANSWERS'

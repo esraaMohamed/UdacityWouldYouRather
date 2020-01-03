@@ -2,7 +2,7 @@ import { _getUsers } from "../utils/_DATA";
 import {receiveAnswers, receiveQuestions} from "./questions";
 import {receiveUsers} from "./users";
 import {setAuthedUser} from "./authUser";
-import {showLoading, hideLoading} from 'react-redux-loading'
+import { showLoading, hideLoading } from 'react-redux-loading'
 
 const AUTHED_ID  = 'tylermcginnis'
 

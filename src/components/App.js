@@ -9,7 +9,7 @@ class App extends Component {
     return (
         <Router>
           <Fragment>
-            {/*<LoadingBarContainer/>*/}
+            <LoadingBarContainer/>
             <div className='container'>
               <Nav/>
               {this.props.loading === true ? null

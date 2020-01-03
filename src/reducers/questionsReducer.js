@@ -22,4 +22,4 @@ const questions = (state = {}, action) => {
     }
 }
 
-export default questions()
+export default questions
