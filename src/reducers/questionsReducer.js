@@ -13,10 +13,12 @@ const questions = (state = {}, action) => {
                 ...action.answers
             }
         case ANSWER_QUESTION:
-            // todo: add code for handling answering a question
 
+            // todo: add code for handling answering a question
+            return
         case ADD_QUESTION:
             // todo: handle adding a question
+            return
         default:
             return state
     }

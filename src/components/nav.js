@@ -1,5 +1,10 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
+import Home from "./home";
+import AddQuestion from "./add-question";
+import LeaderBoard from "./leader-board";
+import Logout from "./logout";
+import UserInfo from "./user-info";
 
 const Nav = () => {
     return (
@@ -8,25 +13,26 @@ const Nav = () => {
             <ul>
                 <li>
                     <NavLink to='/' exact activeClassName='active'>
-                        Home
+                        <Home/>
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/new' activeClassName='active'>
-                        New Question
+                    {/*to={isAuthenticated ? '/questions/new' : 'asdf'*/}
+                    <NavLink to='/questions/new' activeClassName='active'>
+                        <AddQuestion/>
                     </NavLink>
                 </li>
                 <li>
                     <NavLink to='/leader-board' activeClassName='active'>
-                        Leader Board
+                        <LeaderBoard/>
                     </NavLink>
                 </li>
                 <li>
-                        User info and Avatar
+                        <UserInfo />
                 </li>
                 <li>
                     <NavLink to='/logout' activeClassName='active'>
-                        Logout
+                        <Logout/>
                     </NavLink>
                 </li>
             </ul>

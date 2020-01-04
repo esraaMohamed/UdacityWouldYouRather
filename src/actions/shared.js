@@ -10,6 +10,7 @@ export const handleAllUsers = () => {
     return (dispatch) => {
         dispatch(showLoading())
         return _getUsers().then(users => {
+            console.log("inside handleAll users", users)
             dispatch(receiveUsers(users))
             dispatch(hideLoading())
         })
