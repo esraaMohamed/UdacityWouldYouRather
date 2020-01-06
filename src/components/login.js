@@ -2,44 +2,42 @@ import React, {Component, Fragment} from 'react'
 import {Button, Card, Col, Input, Row, Select, Icon} from 'antd';
 import 'antd/dist/antd.css';
 import {connect} from 'react-redux'
-import {handleAllUsers} from '../actions/shared';
-import LoadingBarContainer from 'react-redux-loading';
-import {setAuthedUser, getAuthedUser} from '../actions/authUser';
+import {handleAllUsers, handleInitialData} from '../actions/shared';
+import {setAuthedUser} from '../actions/authUser';
 import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
     state = {
         user: '',
         toHome: false
-    }
+    };
+
     componentDidMount() {
-        this.props.handleAllUsers()
+        this.props.handleAllUsers();
+        this.props.handleInitialData();
     }
 
     handleSubmit = (e) => {
-        e.preventDefault()
-        const { users, authUser } = this.props
-        const { user } = this.state
-        const authedUser = Object.values(users).filter(u => u.name === user)
-        this.props.setAuthedUser(authedUser[0].id)
-    }
+        e.preventDefault();
+        const { users } = this.props;
+        const { user } = this.state;
+        const authedUser = Object.values(users).filter(u => u.name === user);
+        this.props.setAuthedUser(authedUser[0]);
+    };
 
     handleChange = (value) => {
         this.setState({user: value})
-    }
+    };
 
     render() {
         const InputGroup = Input.Group;
         const {Option} = Select;
         const {authUser} = this.props;
         if (authUser) {
-            return <Redirect to="/" />
+            return <Redirect to="/home" />
         }
         return (
             <Fragment>
-                <Row>
-                    <LoadingBarContainer/>
-                </Row>
                 <Row span={24}>
                     <Col span={6}/>
                     <Col span={12}>
@@ -113,14 +111,14 @@ class Login extends Component {
 const mapStateToProps = (state) => {
     return {
         users: state.users,
-        authUser: state.authedUser
+        authUser: state.authedUser.user
     }
-}
+};
 
 const mapDispatchToProps = {
     handleAllUsers,
+    handleInitialData,
     setAuthedUser,
-    getAuthedUser
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login)

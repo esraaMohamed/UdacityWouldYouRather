@@ -164,7 +164,7 @@ li {
 
 .app-header {
   text-align: center;
-  background-color: #dad7d7;
+  background-color: #fcdce2;
 }
 
 .bold-header {
@@ -209,4 +209,82 @@ li {
   text-align: center;
   width: 90%;
   margin: 10px 10px 10px 25px;
+}
+
+.tabs {
+  width: 500px;
+  text-align: center;
+  border: #fcdce2 solid;
+}
+
+.tab-pane {
+  border: #fcdce2 solid;
+}
+
+.question-card  .ant-card-body {
+  padding: 0;
+  margin: 25px;
+  border: #fac4cf solid;
+}
+
+.question-header {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  color: #f695aa;
+  padding: 5px;
+  background-color: #fcdce2;
+  border-bottom: #fac4cf solid;
+}
+
+.vl.ant-divider.ant-divider-vertical {
+  border-left: solid #fac4cf;
+  height: 120px;
+  margin: 3px -3px;
+  top: 0;
+}
+
+.question-text {
+  text-align: left;
+  font-weight: bold;
+  font-size: 16px;
+  color: #f695aa;
+  padding: 5px;
+}
+
+ .ant-avatar.user-avatar.ant-avatar-image.ant-avatar-circle {
+   width: 60px;
+   height: 60px;
+   margin: 10px;
+}
+
+ .view-poll-btn {
+   text-align: center;
+   width: 90%;
+   margin: 10px;
+ }
+
+ .view-question-card .ant-card-body{
+   padding: 0;
+   margin: 25px;
+   border: #fac4cf solid;
+   text-align: center;
+ }
+
+ .question-options {
+   text-align: left;
+ }
+
+.ant-card.answered-question-card.ant-card-bordered .ant-card-body{
+  padding: 0;
+  font-weight: bold;
+  text-align: left;
+  border: #f9f5fa thin;
+ }
+
+.answered-question-card-vl.ant-divider.ant-divider-vertical {
+  border-left: solid #fac4cf;
+  height: 270px;
+  margin: 5px -5px;
+  top: 0;
 }

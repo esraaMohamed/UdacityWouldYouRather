@@ -1,8 +1,8 @@
-import { _saveQuestion, _saveQuestionAnswer } from "../utils/_DATA";
+import {_getQuestions, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
 import { showLoading, hideLoading } from "react-redux-loading";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS'
-export const RECEIVE_ANSWERS = 'RECEIVE_ANSWERS'
+export const RECEIVE_ANSWERED_QUESTIONS = 'RECEIVE_ANSWERED_QUESTIONS'
 export const ANSWER_QUESTION = 'ANSWER_QUESTION'
 export const ADD_QUESTION = 'ADD_QUESTION'
 
@@ -13,10 +13,10 @@ export const receiveQuestions = (questions) => {
     }
 }
 
-export const receiveAnswers = (answers) => {
+export const receiveAnsweredQuestions = (question) => {
     return {
-        type: RECEIVE_ANSWERS,
-        answers
+        type: RECEIVE_ANSWERED_QUESTIONS,
+        question
     }
 }
 
@@ -56,7 +56,16 @@ export const handleAddQuestion = (text) => {
             text,
             author: authedUser,
         })
-            .then((tweet) => dispatch(addQuestion(tweet)))
+            .then((question) => dispatch(addQuestion(question)))
+            .then(()=> dispatch(hideLoading()))
+    }
+}
+
+export const handleGetQuestions = () => {
+    return (dispatch) => {
+        dispatch(showLoading())
+        return _getQuestions()
+            .then((questions) => dispatch(receiveQuestions(questions)))
             .then(()=> dispatch(hideLoading()))
     }
 }

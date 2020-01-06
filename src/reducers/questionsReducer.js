@@ -1,4 +1,9 @@
-import {RECEIVE_QUESTIONS, RECEIVE_ANSWERS, ADD_QUESTION, ANSWER_QUESTION} from "../actions/questions";
+import {
+    RECEIVE_QUESTIONS,
+    RECEIVE_ANSWERED_QUESTIONS,
+    ADD_QUESTION,
+    ANSWER_QUESTION,
+} from "../actions/questions";
 
 const questions = (state = {}, action) => {
     switch (action.type) {
@@ -7,11 +12,8 @@ const questions = (state = {}, action) => {
                 ...state,
                 ...action.questions
             }
-        case RECEIVE_ANSWERS:
-            return {
-                ...state,
-                ...action.answers
-            }
+        case RECEIVE_ANSWERED_QUESTIONS:
+            return {...state}
         case ANSWER_QUESTION:
 
             // todo: add code for handling answering a question

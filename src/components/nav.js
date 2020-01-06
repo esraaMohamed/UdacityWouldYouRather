@@ -1,43 +1,70 @@
-import React from 'react'
-import { NavLink } from "react-router-dom";
-import Home from "./home";
-import AddQuestion from "./add-question";
-import LeaderBoard from "./leader-board";
+import React, {Component} from 'react'
+import {NavLink} from "react-router-dom";
 import Logout from "./logout";
 import UserInfo from "./user-info";
+import {connect} from "react-redux";
 
-const Nav = () => {
-    return (
-        <nav className='nav'>
-            <h3 className='app-header'> React App</h3>
-            <ul>
-                <li>
-                    <NavLink to='/' exact activeClassName='active'>
-                        <Home/>
-                    </NavLink>
-                </li>
-                <li>
-                    {/*to={isAuthenticated ? '/questions/new' : 'asdf'*/}
-                    <NavLink to='/questions/new' activeClassName='active'>
-                        <AddQuestion/>
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink to='/leader-board' activeClassName='active'>
-                        <LeaderBoard/>
-                    </NavLink>
-                </li>
-                <li>
-                        <UserInfo />
-                </li>
-                <li>
-                    <NavLink to='/logout' activeClassName='active'>
-                        <Logout/>
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
-    )
+class Nav extends Component {
+    render() {
+        const {authUser} = this.props;
+        return (
+            <nav className='nav'>
+                <h3 className='app-header'>React App</h3>
+                <ul>
+                    <li>
+                        <NavLink to='/home' exact activeClassName='active'>
+                            Home
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/questions/new' exact activeClassName='active'>
+                            Add Question
+                        </NavLink>
+                    </li>
+                    <li>
+                        <NavLink to='/leader-board' exact activeClassName='active'>
+                            Leader Board
+                        </NavLink>
+                    </li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>&nbsp;</li>
+                    <li>
+                        {
+                            authUser && <UserInfo/>
+                        }
+                    </li>
+                    <li>
+                        {
+                            authUser && <Logout/>
+                        }
+                    </li>
+                </ul>
+            </nav>
+        )
+    }
 }
 
-export default Nav
+const mapStateToProps = (state) => {
+    return {
+        authUser: state.authedUser.user
+    }
+}
+
+export default connect(mapStateToProps)(Nav)

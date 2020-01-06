@@ -45,7 +45,7 @@ To get started developing right away:
 There are two types of objects stored in our database:
 
 * Users
-* Questions
+* UnansweredQuestions
 
 ### Users
 
@@ -59,9 +59,9 @@ Users include:
 | questions | Array | A list of ids of the polling questions this user created|
 | answers      | Object         |  The object's keys are the ids of each question this user answered. The value of each key is the answer the user selected. It can be either `'optionOne'` or `'optionTwo'` since each question has two options.
 
-### Questions
+### UnansweredQuestions
 
-Questions include:
+UnansweredQuestions include:
 
 | Attribute | Type | Description |
 |-----------------|------------------|-------------------|
