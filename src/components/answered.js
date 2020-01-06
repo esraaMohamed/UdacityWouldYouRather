@@ -13,6 +13,8 @@ class Answered extends Component {
                         return Object.values(questions).map((question) => {
                             if (user.id === question.author) {
                                 const allVotesCount = question.optionOne.votes.length + question.optionTwo.votes.length;
+                                const yourVote = question.optionOne.votes.length > 0 ? 'optionOne' : 'optionTwo';
+                                console.log(yourVote)
                                 return (
                                     <Card key={question.id} className='question-card'>
                                         <Row className='question-header'>
@@ -30,7 +32,7 @@ class Answered extends Component {
                                                     Results:
                                                 </Row>
                                                 <Row>
-                                                    <Badge count='Your vote'>
+                                                    <Badge count={yourVote === 'optionOne' ? 'Your vote' : 0} className='badge'>
                                                         <Card className='answered-question-card'>
                                                             {
                                                                 `Would you rather ${question.optionOne.text}?`
@@ -44,7 +46,7 @@ class Answered extends Component {
                                                     </Badge>
                                                 </Row>
                                                 <Row>
-                                                    <Badge count='Your vote'>
+                                                    <Badge count={yourVote === 'optionTwo' ? 'Your vote' : 0} className='badge'>
                                                         <Card className='answered-question-card'>
                                                             {
                                                                 `Would you rather ${question.optionTwo.text}?`
