@@ -3,11 +3,30 @@ import {connect} from 'react-redux'
 import {Avatar, Button, Card, Col, Divider, Row} from "antd";
 import {Link} from "react-router-dom";
 import Error from "./error";
+import {handleAnswerQuestion} from "../actions/questions";
+import { Redirect } from 'react-router-dom'
 
 class ViewQuestion extends Component {
     state = {
         question: null,
-        author: ''
+        author: '',
+        selectedOption: '',
+        toHome: false,
+    };
+
+    handleTextChange = (e) => {
+        this.setState({
+            selectedOption: e.target.value
+        })
+    };
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        const {question, selectedOption} = this.state;
+        this.props.handleAnswerQuestion({qid: question.id, answer: selectedOption});
+        this.setState({
+            toHome: true
+        })
     };
 
     componentDidMount() {
@@ -28,7 +47,10 @@ class ViewQuestion extends Component {
 
     render() {
         const {users} = this.props;
-        const {question, author} = this.state;
+        const {question, author, toHome} = this.state;
+        if(toHome) {
+            return <Redirect to='/home'/>
+        }
         return question && users ? (
             <Row span={24}>
                 <Col span={6}/>
@@ -53,7 +75,8 @@ class ViewQuestion extends Component {
                                            type="radio"
                                            name="questionPoll"
                                            id="optionOne"
-                                           value="optionOne"/>&nbsp;
+                                           value="optionOne"
+                                           onChange={this.handleTextChange}/>&nbsp;
                                     {
                                         `${question.optionOne.text}`
                                     }
@@ -63,14 +86,17 @@ class ViewQuestion extends Component {
                                            type="radio"
                                            name="questionPoll"
                                            id="optionTwo"
-                                           value="optionTwo"/>&nbsp;
+                                           value="optionTwo"
+                                           onChange={this.handleTextChange}/>&nbsp;
                                     {
                                         `${question.optionTwo.text}`
                                     }
                                 </Row>
                                 <Row>
                                     <Link to='/home' className='center'>
-                                        <Button type='primary' className='view-poll-btn'>Submit</Button>
+                                        <Button type='primary'
+                                                className='view-poll-btn'
+                                                onClick={this.handleSubmit}>Submit</Button>
                                     </Link>
                                 </Row>
                             </Col>
@@ -95,4 +121,8 @@ const mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps)(ViewQuestion)
+const mapDispatchToProps = {
+    handleAnswerQuestion
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(ViewQuestion)

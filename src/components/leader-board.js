@@ -5,19 +5,18 @@ class LeaderBoard extends Component {
 
     getAnsweredQuestionsCount = (answers) => {
         return Object.keys(answers).length
-    }
+    };
 
     getCreatedQuestionsCount = (questions) => {
         return questions.length
-    }
+    };
 
     getScore = (answers, questions) => {
         return this.getAnsweredQuestionsCount(answers) + this.getCreatedQuestionsCount(questions)
-    }
+    };
 
     render() {
-        const {users} = this.props
-        console.log(users)
+        const {users} = this.props;
 
         return (
             <Fragment>
@@ -40,9 +39,13 @@ class LeaderBoard extends Component {
                                     <Col span={1}>
                                         <Divider type='vertical' className='vl'/>
                                     </Col>
-                                    <Col span={6}>
+                                    <Col span={6} className='score-card'>
                                         <Row className='score-header'>Score</Row>
-                                        <Row className='score-result'>{this.getScore(user.answers, user.questions)}</Row>
+                                        <Row className='score-result'>
+                                            <Avatar className='score ant-avatar-string'>
+                                                {this.getScore(user.answers, user.questions)}
+                                            </Avatar>
+                                        </Row>
                                     </Col>
                                 </Row>
                             </Card>

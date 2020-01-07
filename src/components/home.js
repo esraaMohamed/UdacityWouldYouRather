@@ -19,7 +19,7 @@ class Home extends Component {
         const authedUserId = authUser.user.id;
         const answeredQuestions = [];
         const unansweredQuestions = [];
-        let author = ""
+        let author = "";
         Object.keys(questions).sort((a, b) => questions[b].timestamp - questions[a].timestamp)
             .map((k) => questions[k])
             .filter(
@@ -34,8 +34,6 @@ class Home extends Component {
                 author = this.props.users[question.author];
             }
         );
-
-        //answeredQuestions.sort((a, b) => questions[b].timestamp - questions[a].timestamp)
         this.setState({
             answeredQuestions,
             unansweredQuestions,
@@ -43,39 +41,14 @@ class Home extends Component {
         })
     };
 
-     compare(a, b) {
-        const questionA = a.questions.timestamp;
-        const questionB = b.questions.timestamp;
-
-        let comparison = 0;
-        if (questionA > questionB) {
-            comparison = 1;
-        } else if (questionA < questionB) {
-            comparison = -1;
-        }
-        return comparison;
-    }
-
-
-    getAnsweredQuestions = (questions) => {
-        let answeredQuestions = [];
-        for (let question of Object.values(questions)) {
-            if (question.optionOne.votes.length > 0 || question.optionTwo.votes.length > 0) {
-                answeredQuestions.push(question);
-            }
-        }
-        console.log('answeredQuestions: ', answeredQuestions);
-        this.setState({answeredQuestions});
-    };
-
     componentDidMount() {
-        this.props.handleGetQuestions()
-        this.filterQuestions()
+        this.props.handleGetQuestions();
+        this.filterQuestions();
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.questions && this.props.questions !== nextProps.questions) {
-            this.filterQuestions()
+            this.filterQuestions();
         }
     }
 

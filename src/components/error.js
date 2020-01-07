@@ -1,12 +1,21 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Link} from "react-router-dom";
+import Button from "antd/es/button";
+import Result from "antd/es/result";
 
 class Error extends Component {
     render() {
-        return(
-            <div className='center'>
-                This question id is invalid, <Link to='/home'>Click here to go back to Home.</Link>
-            </div>
+        return (
+            <Result
+                status="404"
+                title="404"
+                subTitle="Sorry, the page you visited does not exist."
+                extra={
+                    <Link to='/home'>
+                        <Button type="primary">Back Home</Button>
+                    </Link>
+                }
+            />
         )
     }
 }

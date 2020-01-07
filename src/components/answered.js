@@ -5,7 +5,6 @@ import Text from "antd/es/typography/Text";
 class Answered extends Component {
     render() {
         const {questions, users} = this.props;
-        console.log(questions)
         return questions && users && (
             <Fragment>
                 {
@@ -14,7 +13,6 @@ class Answered extends Component {
                             if (user.id === question.author) {
                                 const allVotesCount = question.optionOne.votes.length + question.optionTwo.votes.length;
                                 const yourVote = question.optionOne.votes.length > 0 ? 'optionOne' : 'optionTwo';
-                                console.log(yourVote)
                                 return (
                                     <Card key={question.id} className='question-card'>
                                         <Row className='question-header'>
@@ -38,7 +36,7 @@ class Answered extends Component {
                                                                 `Would you rather ${question.optionOne.text}?`
                                                             }
                                                             <Progress
-                                                                percent={(question.optionOne.votes.length / allVotesCount) * 100}/>
+                                                                percent={Math.round(question.optionOne.votes.length / allVotesCount) * 100}/>
                                                             <Text strong className='center'>
                                                                 {`${question.optionOne.votes.length} out of ${allVotesCount}`}
                                                             </Text>
@@ -52,7 +50,7 @@ class Answered extends Component {
                                                                 `Would you rather ${question.optionTwo.text}?`
                                                             }
                                                             <Progress
-                                                                percent={(question.optionTwo.votes.length / allVotesCount) * 100}/>
+                                                                percent={Math.round(question.optionTwo.votes.length / allVotesCount) * 100}/>
                                                             <Text strong className='center'>
                                                                 {`${question.optionTwo.votes.length} out of ${allVotesCount}`}
                                                             </Text>

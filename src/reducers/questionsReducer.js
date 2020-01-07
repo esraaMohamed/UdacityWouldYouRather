@@ -1,6 +1,5 @@
 import {
     RECEIVE_QUESTIONS,
-    RECEIVE_ANSWERED_QUESTIONS,
     ADD_QUESTION,
     ANSWER_QUESTION,
 } from "../actions/questions";
@@ -12,18 +11,25 @@ const questions = (state = {}, action) => {
                 ...state,
                 ...action.questions
             }
-        case RECEIVE_ANSWERED_QUESTIONS:
-            return {...state}
         case ANSWER_QUESTION:
-
-            // todo: add code for handling answering a question
-            return
+            return {
+                ...state,
+                [action.qid]: {
+                    ...state[action.qid],
+                    [action.answer]: {
+                        ...state[action.qid][action.answer],
+                        votes: state[action.qid][action.answer].votes.concat([action.authedUser])
+                    }
+                }
+            };
         case ADD_QUESTION:
-            // todo: handle adding a question
-            return
+            return {
+                ...state,
+                [action.question.id]: action.question
+            };
         default:
             return state
     }
-}
+};
 
 export default questions

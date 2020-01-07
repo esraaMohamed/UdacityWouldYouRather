@@ -12,9 +12,9 @@ class MainContainer extends Component {
         return this.props.authedUser && this.props.authedUser.user ? (
             <div>
                 <Switch>
-                    <Route path='/questions/new' exact component={AddQuestion}/>
+                    <Route path='/add' exact component={AddQuestion}/>
                     <Route path='/questions/:id' exact component={ViewQuestion}/>
-                    <Route path='/leader-board' component={() => <LeaderBoard users={this.props.users}/>}/>
+                    <Route path='/leaderboard' component={() => <LeaderBoard users={this.props.users}/>}/>
                     <Route component={Home}/>
                 </Switch>
             </div>

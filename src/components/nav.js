@@ -17,12 +17,12 @@ class Nav extends Component {
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/questions/new' exact activeClassName='active'>
+                        <NavLink to='/add' exact activeClassName='active'>
                             Add Question
                         </NavLink>
                     </li>
                     <li>
-                        <NavLink to='/leader-board' exact activeClassName='active'>
+                        <NavLink to='/leaderboard' exact activeClassName='active'>
                             Leader Board
                         </NavLink>
                     </li>
@@ -65,6 +65,6 @@ const mapStateToProps = (state) => {
     return {
         authUser: state.authedUser.user
     }
-}
+};
 
 export default connect(mapStateToProps)(Nav)

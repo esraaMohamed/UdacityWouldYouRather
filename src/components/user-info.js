@@ -21,6 +21,6 @@ const mapStateToProps = (state) => {
     return {
         authUser: state.authedUser.user,
     }
-}
+};
 
 export default connect(mapStateToProps)(UserInfo)
