@@ -10,8 +10,8 @@ Using the provided starter code, you'll build a React/Redux front end for the ap
 
 To get started developing right away:
 
-* install all project dependencies with `npm install`
-* start the development server with `npm start`
+* install all project dependencies with `npm install` or `yarn install`
+* start the development server with `npm start` or `yarn start`
 
 ## What You're Getting
 ```bash
