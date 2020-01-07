@@ -23,20 +23,36 @@ To get started developing right away:
 │   └── index.html # DO NOT MODIFY
 └── src
     ├── components
-    │   ├──
-    │   └──  App.js # This is the root of your app.
+    │   ├── App.js # This is the root of your app.
+    │   ├── AddQuestion # The add question component
+    │   ├── Answered # This component shows the answered questions
+    │   ├── Error # the error component 
+    │   ├── Home # this is the default landing page it displays the unanswered and answered 
+    │   ├── LeaderBoard # this is the Leader board component
+    │   ├── Login # This is the login screen
+    │   ├── Logout # this is the logout component
+    │   ├── MainContainer # this is the main container 
+    │   ├── Nav # This is the navigation component
+    │   ├── Questions # This is the questions component, displays the questions
+    │   ├── UnansweredQuestions # This is the unanswered questions component 
+    │   ├── UserInfo # This is the user info component
+    │   └── ViewQuestions #This is the view question poll of unanswered questions
     ├── actions
-    │   ├──
-    │   └──
+    │   ├── AuthUser # handles setting the authed user
+    │   ├── Questions # handles retrieving questions, adding question and adding answer to a question
+    │   ├── Shared # handles shared actions
+    │   └── Users # handles retrieving the users 
     ├── middleware
     │   ├── index.js # exports default middleware by using `applyMiddleware()`
     │   └── logger.js # creates a logger middleware
     ├── reducers
-    │   ├──
-    │   └──
+    │   ├── authedUserReducer
+    │   ├── index.js # contains combine reducers 
+    │   ├── questionsReducer
+    │   └── usersReducer
     ├── utils
     │   └── _DATA.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── index.css # Global styles. You probably won't need to change anything here.
+    ├── index.css # Global styles.
     └── index.js # You should not need to modify this file. It is used for DOM rendering only.
 ```
 
