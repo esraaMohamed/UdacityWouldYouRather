@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Questions from "./questions";
+import Questions from "./Questions";
 
 class UnansweredQuestions extends Component {
 

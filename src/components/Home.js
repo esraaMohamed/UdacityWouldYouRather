@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {Col, Tabs} from "antd";
-import UnansweredQuestions from "./unanswered-questions";
-import AnsweredQuestions from "./answered-questions";
+import UnansweredQuestions from "./UnansweredQuestions";
+import AnsweredQuestions from "./AnsweredQuestions";
 import Row from "antd/es/grid/row";
 import {handleGetQuestions} from "../actions/questions";
 import {connect} from "react-redux";
-import Error from "./error";
+import Error from "./Error";
 
 class Home extends Component {
 
@@ -46,7 +46,7 @@ class Home extends Component {
         this.filterQuestions();
     }
 
-    componentWillReceiveProps(nextProps, nextContext) {
+    UNSAFE_componentWillReceiveProps(nextProps, nextContext) {
         if (nextProps.questions && this.props.questions !== nextProps.questions) {
             this.filterQuestions();
         }

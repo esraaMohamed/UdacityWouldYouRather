@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Avatar, Button, Card, Col, Divider, Row} from "antd";
 import {Link} from "react-router-dom";
-import Error from "./error";
+import Error from "./Error";
 import {handleAnswerQuestion} from "../actions/questions";
 import { Redirect } from 'react-router-dom'
 

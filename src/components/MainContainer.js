@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {Route, Switch} from "react-router-dom";
-import Login from "./login";
-import Home from "./home";
-import Error from './error'
-import AddQuestion from "./add-question";
-import ViewQuestion from "./view-question";
-import LeaderBoard from "./leader-board";
+import Login from "./Login";
+import Home from "./Home";
+import Error from './Error'
+import AddQuestion from "./AddQuestion";
+import ViewQuestion from "./ViewQuestion";
+import LeaderBoard from "./LeaderBoard";
 import {connect} from "react-redux";
 
 class MainContainer extends Component {

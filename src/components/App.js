@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {BrowserRouter as Router} from "react-router-dom";
-import Nav from "./nav";
-import MainContainer from "./main";
+import Nav from "./Nav";
+import MainContainer from "./MainContainer";
 import LoadingBarContainer from "react-redux-loading";
 import {Row} from "antd";
 
