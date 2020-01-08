@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
-import Answered from "./Answered";
+import Questions from "./Questions";
 
 class AnsweredQuestions extends Component {
 
     render() {
         return (
-            <Answered questions={this.props.questions} users={this.props.users}/>
+            <Questions questions={this.props.questions} users={this.props.users}/>
         )
     }
 }

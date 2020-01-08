@@ -187,6 +187,7 @@ li {
     font-weight: bold;
     text-align: left;
     border: #dad7d7 thin;
+    width: 450px;
 }
 
 .answered-question-card-vl.ant-divider.ant-divider-vertical {

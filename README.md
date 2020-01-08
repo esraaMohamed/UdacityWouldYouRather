@@ -25,7 +25,8 @@ To get started developing right away:
     ├── components
     │   ├── App.js # This is the root of your app.
     │   ├── AddQuestion # The add question component
-    │   ├── Answered # This component shows the answered questions
+    │   ├── AnsweredQuestions # This component shows the answered questions    
+    │   ├── AnsweredQuestion # This component shows the answered question
     │   ├── Error # the error component 
     │   ├── Home # this is the default landing page it displays the unanswered and answered 
     │   ├── LeaderBoard # this is the Leader board component
@@ -33,8 +34,8 @@ To get started developing right away:
     │   ├── Logout # this is the logout component
     │   ├── MainContainer # this is the main container 
     │   ├── Nav # This is the navigation component
-    │   ├── Questions # This is the questions component, displays the questions
     │   ├── UnansweredQuestions # This is the unanswered questions component 
+    │   ├── UnansweredQuestion # This component shows the unanswered question
     │   ├── UserInfo # This is the user info component
     │   └── ViewQuestions #This is the view question poll of unanswered questions
     ├── actions

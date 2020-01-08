@@ -62,7 +62,7 @@ class Home extends Component {
                         <TabPane tab="Unanswered Questions" key="1">
                             <UnansweredQuestions questions={this.state.unansweredQuestions} users={this.props.users}/>
                         </TabPane>
-                        <TabPane tab="Answered Questions" key="2">
+                        <TabPane tab="AnsweredQuestion Questions" key="2">
                             <AnsweredQuestions questions={this.state.answeredQuestions} users={this.props.users}/>
                         </TabPane>
                     </Tabs>
