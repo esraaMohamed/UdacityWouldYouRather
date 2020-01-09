@@ -36,28 +36,50 @@ class AnsweredQuestion extends Component {
                         <Row>
                             <Badge count={yourVote === 'optionOne' ? 'Your vote' : 0} className='badge'>
                                 <Card className='answered-question-card'>
-                                    {
-                                        `Would you rather ${question.optionOne.text}?`
-                                    }
-                                    <Progress
-                                        percent={Math.round(question.optionOne.votes.length / allVotesCount) * 100}/>
-                                    <Text strong className='center'>
-                                        {`${question.optionOne.votes.length} out of ${allVotesCount}`}
-                                    </Text>
+                                    <Row>
+                                        {
+                                            `Would you rather ${question.optionOne.text}?`
+                                        }
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <Progress
+                                                percent={(question.optionOne.votes.length / allVotesCount) * 100}/>
+                                        </Col>
+                                        <Col>
+                                            <Text strong className='right'>{(question.optionOne.votes.length / allVotesCount) * 100}%</Text>
+                                        </Col>
+                                    </Row>
+                                   <Row>
+                                       <Text strong className='center'>
+                                           {`${question.optionOne.votes.length} out of ${allVotesCount}`}
+                                       </Text>
+                                   </Row>
                                 </Card>
                             </Badge>
                         </Row>
                         <Row>
                             <Badge count={yourVote === 'optionTwo' ? 'Your vote' : 0} className='badge'>
                                 <Card className='answered-question-card'>
-                                    {
-                                        `Would you rather ${question.optionTwo.text}?`
-                                    }
-                                    <Progress
-                                        percent={Math.round(question.optionTwo.votes.length / allVotesCount) * 100}/>
-                                    <Text strong className='center'>
-                                        {`${question.optionTwo.votes.length} out of ${allVotesCount}`}
-                                    </Text>
+                                    <Row>
+                                        {
+                                            `Would you rather ${question.optionTwo.text}?`
+                                        }
+                                    </Row>
+                                    <Row>
+                                        <Col>
+                                            <Progress
+                                                percent={(question.optionTwo.votes.length / allVotesCount) * 100}/>
+                                        </Col>
+                                        <Col>
+                                            <Text strong className='right'>{(question.optionTwo.votes.length / allVotesCount) * 100}%</Text>
+                                        </Col>
+                                    </Row>
+                                    <Row>
+                                        <Text strong className='center'>
+                                            {`${question.optionTwo.votes.length} out of ${allVotesCount}`}
+                                        </Text>
+                                    </Row>
                                 </Card>
                             </Badge>
                         </Row>
