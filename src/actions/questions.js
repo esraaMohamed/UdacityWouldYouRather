@@ -1,5 +1,6 @@
 import {_getQuestions, _saveQuestion, _saveQuestionAnswer} from "../utils/_DATA";
-import { showLoading, hideLoading } from "react-redux-loading";
+import {showLoading, hideLoading} from "react-redux-loading";
+import {addUserQuestion, addUserQuestionAnswer} from "./users";
 
 export const RECEIVE_QUESTIONS = 'RECEIVE_QUESTIONS';
 export const ANSWER_QUESTION = 'ANSWER_QUESTION';
@@ -28,19 +29,21 @@ export const addQuestion = (question) => {
     }
 };
 
-export const handleAnswerQuestion = ({ qid, answer}) => {
+export function handleAnswerQuestion(qid, selectedOption) {
     return (dispatch, getState) => {
-        const {authedUser} = getState();
-        const userid = authedUser.user.id;
-        dispatch(answerQuestion(userid, qid, answer));
-        return _saveQuestionAnswer({authedUser: userid, qid, answer})
-            .catch((error) => {
-                console.log('Error in handleAnswerQuestion: ', error);
-                dispatch(answerQuestion(userid, qid, answer));
-                alert('There was an error answering the question, try again.')
-            })
+        const authedUser = getState().authedUser.user.id;
+        dispatch(showLoading());
+        return _saveQuestionAnswer({
+            authedUser,
+            qid,
+            answer: selectedOption
+        }).then(() => {
+            dispatch(answerQuestion(authedUser, qid, selectedOption));
+            dispatch(addUserQuestionAnswer(authedUser, qid, selectedOption));
+            dispatch(hideLoading());
+        });
     }
-};
+}
 
 export const handleAddQuestion = (question) => {
     return (dispatch) => {
@@ -48,8 +51,11 @@ export const handleAddQuestion = (question) => {
         return _saveQuestion(
             question
         )
-            .then((question) => dispatch(addQuestion(question)))
-            .then(()=> dispatch(hideLoading()))
+            .then((question) => {
+                dispatch(addQuestion(question));
+                dispatch(addUserQuestion(question));
+            })
+            .then(() => dispatch(hideLoading()))
     }
 };
 
@@ -58,6 +64,6 @@ export const handleGetQuestions = () => {
         dispatch(showLoading());
         return _getQuestions()
             .then((questions) => dispatch(receiveQuestions(questions)))
-            .then(()=> dispatch(hideLoading()))
+            .then(() => dispatch(hideLoading()))
     }
 };

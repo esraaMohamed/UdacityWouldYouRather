@@ -292,3 +292,7 @@ li {
 .ant-avatar-string {
     margin-top: 5px;
 }
+
+.right {
+    text-align: right;
+}

@@ -7,16 +7,17 @@ import AddQuestion from "./AddQuestion";
 import ViewQuestion from "./ViewQuestion";
 import LeaderBoard from "./LeaderBoard";
 import {connect} from "react-redux";
+import {handleInitialData} from "../actions/shared";
 
 class MainContainer extends Component {
     render() {
-        return this.props.authedUser && this.props.authedUser.user ? (
+        return this.props.authedUser && this.props.authedUser.user && this.props.users ? (
             <div>
                 <Switch>
                     <Route path='/add' exact component={AddQuestion}/>
                     <Route path='/404/' component={Error}/>
                     <Route path='/questions/:id' exact component={ViewQuestion}/>
-                    <Route path='/leaderboard' component={() => <LeaderBoard users={this.props.users}/>}/>
+                    <Route path='/leaderboard' component={LeaderBoard}/>
                     <Route component={Home}/>
                 </Switch>
             </div>
@@ -30,4 +31,9 @@ const mapStateToProps = (state) => {
         users: state.users
     }
 };
-export default connect(mapStateToProps)(MainContainer);
+
+const mapDispatchToProps = {
+    handleInitialData
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);

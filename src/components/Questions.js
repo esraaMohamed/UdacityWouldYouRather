@@ -1,4 +1,4 @@
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import {Avatar, Button, Card, Col, Divider, Row} from "antd";
 import {Link} from "react-router-dom";
 
@@ -6,9 +6,7 @@ class Questions extends Component {
     render() {
         const {questions, users} = this.props;
         return questions && users && (
-            <Fragment>
-                {
-                    Object.values(users).map((user) => {
+            Object.values(users).map((user) => {
                         return Object.values(questions).map((question) => {
                             if (user.id === question.author) {
                                 return (
@@ -49,10 +47,7 @@ class Questions extends Component {
                                 )
                             }
                         })
-                    })
-                }
-            </Fragment>
-        )
+                    }))
     }
 }
 

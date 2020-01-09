@@ -1,10 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {Avatar, Button, Card, Col, Divider, Row} from "antd";
-import {Link} from "react-router-dom";
-import Error from "./Error";
 import {handleAnswerQuestion} from "../actions/questions";
-import {Redirect} from 'react-router-dom'
 import AnsweredQuestion from "./AnsweredQuestion";
 import UnAnsweredQuestion from "./UnansweredQuestion";
 
@@ -21,10 +17,10 @@ class ViewQuestion extends Component {
             let author = "";
             let question = "";
             let isAnswered = false;
-            if (this.props.questions[id] !== undefined && Object.keys(this.props.questions).includes(id)) {
+            if (this.props.questions[id]  && Object.keys(this.props.questions).includes(id)) {
                 question = this.props.questions[id];
                 author = this.props.users[question.author];
-                isAnswered = !(this.props.questions[id].optionOne.votes.length === 0 || this.props.questions[id].optionTwo.votes.length === 0)
+                isAnswered = this.props.questions[id].optionOne.votes.length !== 0 || this.props.questions[id].optionTwo.votes.length !== 0
             }
             this.setState({
                 question,
