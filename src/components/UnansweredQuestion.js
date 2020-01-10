@@ -22,7 +22,6 @@ class ViewQuestion extends Component {
         e.preventDefault();
         const {question} = this.props;
         const {selectedOption} = this.state;
-        console.log('selectedOption ', selectedOption)
         this.props.handleAnswerQuestion(question.id, selectedOption);
         this.setState({
             toHome: true

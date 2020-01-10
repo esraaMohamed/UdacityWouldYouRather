@@ -22,7 +22,6 @@ class Home extends Component {
             .filter(
             (question) => {
                 const isAnswered = question.optionOne.votes.includes(authUser.user.id) || question.optionTwo.votes.includes(authUser.user.id);
-                console.log("auth user answered questions: ", question, " ? ", isAnswered)
                 if (isAnswered) {
                     answeredQuestions.push(question)
                 } else {
