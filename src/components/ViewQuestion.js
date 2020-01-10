@@ -12,6 +12,7 @@ class ViewQuestion extends Component {
     };
 
     componentDidMount() {
+        const { authUser} = this.props;
         if (this.props.questions) {
             const {id} = this.props.match.params;
             let author = "";
@@ -20,7 +21,7 @@ class ViewQuestion extends Component {
             if (this.props.questions[id]  && Object.keys(this.props.questions).includes(id)) {
                 question = this.props.questions[id];
                 author = this.props.users[question.author];
-                isAnswered = this.props.questions[id].optionOne.votes.length !== 0 || this.props.questions[id].optionTwo.votes.length !== 0
+                isAnswered = question.optionOne.votes.includes(authUser.user.id) || question.optionTwo.votes.includes(authUser.user.id)
             }
             this.setState({
                 question,

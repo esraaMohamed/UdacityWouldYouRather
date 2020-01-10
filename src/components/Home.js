@@ -14,14 +14,15 @@ class Home extends Component {
     };
 
     filterQuestions = () => {
-        const {questions} = this.props;
+        const {questions, authUser} = this.props;
         const answeredQuestions = [];
         const unansweredQuestions = [];
         let author = "";
         Object.keys(questions).map((k) => questions[k])
             .filter(
             (question) => {
-                const isAnswered = question.optionOne.votes.length !== 0 || question.optionTwo.votes.length !== 0
+                const isAnswered = question.optionOne.votes.includes(authUser.user.id) || question.optionTwo.votes.includes(authUser.user.id);
+                console.log("auth user answered questions: ", question, " ? ", isAnswered)
                 if (isAnswered) {
                     answeredQuestions.push(question)
                 } else {

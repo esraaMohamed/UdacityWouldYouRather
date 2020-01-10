@@ -44,10 +44,10 @@ class AnsweredQuestion extends Component {
                                     <Row>
                                         <Col>
                                             <Progress
-                                                percent={(question.optionOne.votes.length / allVotesCount) * 100}/>
+                                                percent={Math.round((question.optionOne.votes.length / allVotesCount) * 100)}/>
                                         </Col>
                                         <Col>
-                                            <Text strong className='right'>{(question.optionOne.votes.length / allVotesCount) * 100}%</Text>
+                                            <Text strong className='right'>{Math.round((question.optionOne.votes.length / allVotesCount) * 100)}%</Text>
                                         </Col>
                                     </Row>
                                    <Row>
@@ -69,10 +69,10 @@ class AnsweredQuestion extends Component {
                                     <Row>
                                         <Col>
                                             <Progress
-                                                percent={(question.optionTwo.votes.length / allVotesCount) * 100}/>
+                                                percent={Math.round((question.optionTwo.votes.length / allVotesCount) * 100)}/>
                                         </Col>
                                         <Col>
-                                            <Text strong className='right'>{(question.optionTwo.votes.length / allVotesCount) * 100}%</Text>
+                                            <Text strong className='right'>{Math.round((question.optionTwo.votes.length / allVotesCount) * 100)}%</Text>
                                         </Col>
                                     </Row>
                                     <Row>
